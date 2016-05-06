@@ -27,6 +27,23 @@ group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
+	
+	#devise gem for sign_up and sign_in
+	gem 'devise', '~> 3.5.9'
+  gem 'judge'
+	
+  gem 'autoprefixer-rails'
+
+
+  gem 'omniauth'
+  gem 'omniauth-facebook'
+
+  gem 'rails-observers'
+  gem "omniauth-google-oauth2"
+
+  gem 'carrierwave'
+  
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,21 +65,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-	
-	#devise gem for sign_up and sign_in
-	gem 'devise', '~> 3.5.9'
-  gem 'judge'
-	
-  gem 'autoprefixer-rails'
-
-
-  gem 'omniauth'
-  gem 'omniauth-facebook'
-
-  gem 'rails-observers'
-  gem "omniauth-google-oauth2"
-
-  gem 'carrierwave'
-  
 end
 
