@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Groups</h1>
+<!-- Groups -->
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_for(@group) do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id%>
+        <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name , required: true%>
+        </div>
+        <div class="actions">
+        <%= f.submit %>
+        </div>
+      <% end %>
+
+    <table class="table">
+    <% @groups  %>
+         <% @groups.each do |group| %>
+         <tr class="success">
+            <td> <%= link_to group.name , group %> </td>
+            <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'view', group %></td>
+         </tr>
+       <% end %>
+      </table>  
+    </div>
+<!-- Show -->
+  <div class="col-md-6">
+    <% if @groupParam != nil %>
+        <%= form_for(@group_member) do |f| %>
+          <%= f.hidden_field :group_id, :value => @groupParam.id%>
+          <div class="field">
+          <%= f.label :userName %><br>
+          <%= f.text_field :user_id , required: true %>
+          </div>
+          <div class="actions">
+          <%= f.submit %>
+          </div>
+        <% end %>
+    <% end%>    
+
+      <% if @GM != nil %>
+              <table class="table">
+              <% @GM.each do |x| %>
+              <tr class="success">
+                  <td> <%= x.user.name %> </td>
+                  <td><%= link_to 'Remove', x  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+              </tr>
+              <% end %>
+            </table>
+      <% end %>      
+  </div> 
+   <!--  end of row -->
+      </div>

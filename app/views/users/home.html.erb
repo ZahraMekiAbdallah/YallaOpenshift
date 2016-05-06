@@ -1,0 +1,68 @@
+
+<body>
+<div class="container">
+
+<div id="user_nav">
+
+  <% if current_user %>
+
+    <!-- Welcome <strong><%= current_user.name %></strong>! -->
+
+    Signed in as <strong><%= current_user.name %></strong>!
+	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+<br><br>
+
+	<div class="row" >
+		<div class="col-md-6">
+		<table class="table" >
+			<tr class="danger">
+				<b> Latest Orders </b>
+			</tr>
+			<%  @orders.each do |order| %>
+			<tr class="success">
+				<td> <%= link_to order.order_for+" on "+ order.created_at.strftime('%m/%d/%Y'), order %> </td>
+			</tr>
+		</table>
+		<% end %>
+		</div>
+
+		<div class="col-md-6">
+		<table class="table" >
+			<tr>
+				<b>Friends Activity</b>
+			</tr>
+
+				<%  @friends.each do |friend| %>
+				<%  friend.orders.each do |tt| %>
+			<tr class="success">
+				<td>
+					<%= friend.name+" has created an order for "+tt.order_for+" from "+tt.resturant %>
+				</td>
+			</tr>
+			<% end %>
+			<% end %>	
+		</table>	
+		</div>	
+	</div>	
+</div>	
+
+<div class="row">
+	<div class="col-sm-3">
+	</div>
+	<div class="col-sm-6">
+		<a href="users/index" >Make Friends</a>
+
+		<%= link_to "My Friends",{ :controller =>"users", :action =>"show", :id =>current_user} %>
+
+	</div>
+	<div class="col-sm-3">
+	</div>
+
+</div>
+	</body>	
+

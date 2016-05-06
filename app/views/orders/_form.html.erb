@@ -1,0 +1,68 @@
+<%= form_for @order, url: orders_path, html: { multipart: true } do |f| %>
+
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+<div class ="col-sm-6">
+  <div class="field">
+    <%= f.label :order_for %><br>
+    <%= f.select :order_for, [['Breakfast','breakfast'],['Lunch','lunch'],['Dinner','dinner']] %>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :resturant %><br>
+    <%= f.text_field :resturant , class: "form-control"%>
+  </div>
+  <!--  radio group (Friend or Group)  -->
+  <div class="field">
+    <label>Invite Group or a Friend </label> </br>
+    <input type="radio" name="invite" value="g"> Group<br>
+    <input type="radio" name="invite" value="f"> Friend<br>
+  </div>
+<!-- Text area to enter friend or group name -->
+  <div>
+   <label for="invited">Enter Friend/Group:</label>
+   <input type="text" class="form-control" id="invited">
+  </div>
+
+
+
+  <!-- <form accept-charset="UTF-8" action="/search" method="get">
+    <input name="utf8" type="hidden" value="&#x2713;" />
+    <label for="q">Search for:</label>
+    <input id="q" name="q" type="text" class = "form-control"/>
+    <input name="commit" type="submit" value="Search" />
+  </form> -->
+
+  <!-- Menu Image  -->
+  <div class="field">
+    <%= f.label :'Menu Image' %><br>
+    <%= f.file_field :avatar %>
+  </div><br>
+
+
+
+<input type="submit" class="btn btn-info" value="Submit Button">
+
+<% end %>
+</div>
+<!-- invited friends section -->
+<div class="col-sm-6" >
+  <div class="container">
+<h2>Invited Friends</h2>
+  </div>
+
+</div>
+
+</div>

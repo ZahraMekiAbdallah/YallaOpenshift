@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+  <strong>Add user:</strong>
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_for(@group_member) do |f| %>
+        <%= f.hidden_field :group_id, :value => @group.id%>
+        <div class="field">
+        <%= f.label :userName %><br>
+        <%= f.text_field :user_id %>
+        </div>
+        <div class="actions">
+        <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+ <table class="table">
+  <% @GM.each do |x| %>
+  <tr>
+  	<td> <%= x.user.name %> </td>
+  <td><%= link_to 'Remove', x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+   <% end %>
+    </div>
+  </div>   
+
+
+
+

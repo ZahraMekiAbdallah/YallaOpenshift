@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-sm-6">
+<p>
+  <strong>Order Id:</strong>
+  <%= @order.id %>
+</p>
+
+<p>
+  <strong>Order for:</strong>
+  <%= @order.order_for %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Resturant:</strong>
+  <%= @order.resturant %>
+</p>
+<p>
+  <strong>Menu image:</strong><br>
+  <%= image_tag @order.avatar.url(:thumb) %>
+</p>
+
+<!--<%= image_tag @order.avatar.url %>-->
+<!--<%= image_tag @order.avatar.url(:medium) %>-->
+
+<button type="button" class="btn btn-info"><%= link_to 'Edit', edit_order_path(@order) %> </button>
+
+<button type="button" class="btn btn-info"><%= link_to 'Back', orders_path %></button>
+</div>
+
+<div class="col-sm-6">
+  <h3>Friends Invited</h3>
+</div>
+
+
+</div>

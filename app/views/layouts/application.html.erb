@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Otlob</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "main" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "autocomplete-rails.js" %>
+  <%= csrf_meta_tags %>
+ 
+</head>
+<body>
+    <div class="container-fluid">
+          <div class="container-fluid">
+              <header>
+                <div class="logo pull-left col-md-6 col-sm-12">
+                    <%= image_tag "logo.png" ,:size => '100x50' %>
+                </div>
+                <div class="logo pull-right col-md-6 col-sm-12">
+                  
+                </div>
+                <p class="clearfix"></p>
+              </header>
+              <nav class="navbar navbar-default">
+                  <div class="container-fluid">
+                    <div class="navbar-header">
+                      <a class="navbar-brand" href="/">Otlob.com</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                          <li>
+                     
+                       <% if user_signed_in? %>
+                          <li><a href="/users/show">Friend</a></li>
+                          <li>
+                             <a  href="/groups">Groups</a>
+                          </li>
+                          <li><a href="/orders">Orders</a></li>
+                         <% else %>
+                          <li>  <%= link_to('Login', new_user_session_path)  %> </li>
+                          <li>  <%= link_to('Register', new_user_registration_path)  %></li>
+                      <% end %>
+
+
+                    </ul>
+                       <% if user_signed_in? %>
+                        <ul class="nav navbar-nav pull-right">
+                          <li class="imgusr">
+                         
+                          </li>
+                           
+                           <li>
+							  <a>Welcome<strong> <%= current_user.name %></strong></a>
+							</li>
+							<li>
+                           		<%= link_to "LogOut" ,destroy_user_session_path, :method =>'DELETE' %>                          			
+                           </li>
+                       </ul>
+                      <% end %>
+                  </div>
+                </nav>
+				 <div class="content ">
+				<%= yield %>
+				 </div>
+
+        <div class="navbar navbar-default" style="text-align:center">
+          <div class="footer">
+            <p>Copy right &copy; ZASD 2016 </p>
+          </div>
+        </div>
+          </div>
+
+        </div>
+
+</body>
+</html>
