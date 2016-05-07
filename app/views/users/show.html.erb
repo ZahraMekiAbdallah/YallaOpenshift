@@ -2,7 +2,6 @@
 
 <h2>Friends</h2>
 <% if @user.friendships.any? %>
-<ul>
   <% @user.friendships.each do |friendship| %>
    <table class="table">
    <tr class="success">
@@ -11,7 +10,6 @@
    </tr>
    </table>
   <% end %>
-</ul>
 <% else %>
       <table class="table">
       <tr class="danger">
