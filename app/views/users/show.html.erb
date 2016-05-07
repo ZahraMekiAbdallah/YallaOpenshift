@@ -9,11 +9,16 @@
       <td><%=h friendship.friend.name %></td>
       <td>- <%= link_to "remove", friendship, :method => :delete %></td>
    </tr>
+   </table>
   <% end %>
 </ul>
 <% else %>
-	<h2> You have no friends ... </h2>
+      <table class="table">
+      <tr class="danger">
+      <td>	<h2> You have no friends ... </h2> </td>
+      </tr>
+      </table>	
  <% end %>
- </table>
+ 
 <p><%= link_to "Find New Friends", user_session_path %></p>
 
