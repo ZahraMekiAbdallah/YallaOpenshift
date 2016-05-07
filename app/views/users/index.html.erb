@@ -2,8 +2,12 @@
   <% @users.each do |user| %>
     <div id="user">
       <% if user.name != current_user.name %>
-        <%=h user.name %>
-        <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <table class="table">
+      <tr class="success">
+      <td><%=h user.name %></td>
+      <td><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></td>
+      </tr>
+      </table>
       <% end %>
     </div>    
   <% end %>
