@@ -26,30 +26,28 @@ class GroupMembersController < ApplicationController
   def create
     respond_to do |format|
 ######user_id == name of user
-    @test = User.where(name: group_member_params[:user_id]).ids
+    @allIds = User.where(name: group_member_params[:user_id]).ids
 
     # @myGr = GroupMember.where(group_id: group_member_params[:group_id], user_id: User.where(name: group_member_params[:user_id]).ids)
 
     @gTest = Group.find(group_member_params[:group_id])
 
 
-    @test.each do |t|
-    @myGr = GroupMember.where(group_id: group_member_params[:group_id], user_id: t)
+    @allIds.each do |id|
+    # @myGr = GroupMember.where(group_id: group_member_params[:group_id], user_id: id)
 
-    if group_member_params[:user_id] != nil or  @myGr == nil
+    if current_user.id != id
         @group_member = GroupMember.new(user_id: t,group_id: group_member_params[:group_id])
         @group_member.save
         format.html { redirect_to @gTest , notice: '' }
         format.json { render :show, status: :created, location: @group_member }
     end
-    end
-    if 
-        format.html { redirect_to @gTest , notice: 'Sorry please enter valid data' }
+    else 
+        format.html { redirect_to @gTest , notice: 'Soooooooooooorry please enter valid data' }
         format.json { render :show, status: :created, location: @group_member }
     end 
   end
   end
-
   # PATCH/PUT /group_members/1
   # PATCH/PUT /group_members/1.json
   def update
