@@ -4,8 +4,8 @@
       <% if user.name != current_user.name %>
       <table class="table">
       <tr class="success">
-      <td><%=h user.name %></td>
-      <td><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></td>
+      <td><%=h user.name %>
+      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %> </td>
       </tr>
       </table>
       <% end %>

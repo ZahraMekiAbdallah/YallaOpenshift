@@ -10,10 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :friendships
   has_many :friends, :through => :friendships
-  scope :friend_with, ->( other ) do
-  other = other.id if other.is_a?( User )
-  where( '(friendships.user_id = users.id AND friendships.friend_id = ?) OR (friendships.user_id = ? AND friendships.friend_id = users.id)', other, other ).includes( :frienships )
-  end
+  
 
 
   has_many      :sent, 
@@ -52,11 +49,8 @@ def self.from_omniauth(auth)
         user.name = auth.info.name
         user.password = Devise.friendly_token[0,20]
       end 
-      
-def friend_with?( other )
-    User.where( id: id ).friend_with( other ).any?
-  end      
-end
+end     
+
 
 # def self.from_omniauth(auth)
 #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -76,7 +70,5 @@ end
 #   end             
 
 
-
 end
-
 
