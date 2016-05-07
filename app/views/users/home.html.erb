@@ -8,9 +8,6 @@
 
     <!-- Welcome <strong><%= current_user.name %></strong>! -->
 
-    Signed in as <strong><%= current_user.name %></strong>!
-	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
-
   <% else %>
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
