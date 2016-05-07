@@ -4,15 +4,21 @@
 <% if @user.friendships.any? %>
 <ul>
   <% @user.friendships.each do |friendship| %>
-    <li>
-      <%=h friendship.friend.name %>
-      - <%= link_to "remove", friendship, :method => :delete %>
-    </li>
+   <table class="table">
+   <tr class="success">
+      <td><%=h friendship.friend.name %></td>
+      <td>- <%= link_to "remove", friendship, :method => :delete %></td>
+   </tr>
+   </table>
   <% end %>
 </ul>
 <% else %>
-	<h3> There are no Friends ... </h3>
+      <table class="table">
+      <tr class="danger">
+      <td>	<h2> You have no friends ... </h2> </td>
+      </tr>
+      </table>	
  <% end %>
-
+ 
 <p><%= link_to "Find New Friends", user_session_path %></p>
 
