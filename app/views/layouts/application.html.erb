@@ -31,7 +31,8 @@
                           <li>
                      
                        <% if user_signed_in? %>
-                          <li><a href="/users/show">Friend</a></li>
+                          <li><%= link_to "My Friends",{ :controller =>"users", :action =>"show", :id =>current_user} %></li>
+                          <li><a href="/users/index">Make Friends</a></li>
                           <li>
                              <a  href="/groups">Groups</a>
                           </li>
