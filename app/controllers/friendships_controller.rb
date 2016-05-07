@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+before_filter :check_friendship, only: :create
 
  
   def create
@@ -45,4 +46,10 @@ class FriendshipsController < ApplicationController
   #   def friend_params
   #     params.require(:friend).permit(:user_id, :friend_id)
   #   end
+  private
+
+  def check_friendship
+    redirect_to( current_user, alert: 'Already a friend' ) if current_user.friend_with?( params[ :friend_id ] )
+  end
+end
 end
