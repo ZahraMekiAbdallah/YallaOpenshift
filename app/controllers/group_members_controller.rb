@@ -34,7 +34,7 @@ class GroupMembersController < ApplicationController
 
 
     @allIds.each do |id|
-    # @myGr = GroupMember.where(group_id: group_member_params[:group_id], user_id: id)
+    @myGr = GroupMember.where(group_id: group_member_params[:group_id], user_id: id)
 
     if current_user.id != id
         @group_member = GroupMember.new(user_id: t,group_id: group_member_params[:group_id])
@@ -42,8 +42,9 @@ class GroupMembersController < ApplicationController
         format.html { redirect_to @gTest , notice: '' }
         format.json { render :show, status: :created, location: @group_member }
     end
-    else 
-        format.html { redirect_to @gTest , notice: 'Soooooooooooorry please enter valid data' }
+    end
+    if 
+        format.html { redirect_to @gTest , notice: 'Sorry please enter valid data' }
         format.json { render :show, status: :created, location: @group_member }
     end 
   end
