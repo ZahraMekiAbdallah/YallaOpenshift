@@ -7,7 +7,7 @@
    <table class="table">
    <tr class="success">
       <td><%=h friendship.friend.name %></td>
-      <td>- <%= link_to "remove", friendship, :method => :delete %></td>
+      <td> <%= link_to "remove", friendship, :method => :delete %></td>
    </tr>
    </table>
   <% end %>
@@ -15,10 +15,10 @@
 <% else %>
       <table class="table">
       <tr class="danger">
-      <td>	<h2> You have no friends ... </h2> </td>
+      <td>	<p> You have no friends ... </p> </td>
       </tr>
       </table>	
  <% end %>
  
-<p><%= link_to "Find New Friends", user_session_path %></p>
+<p><a href="/users/index">Find New Friends</a></p>
 
