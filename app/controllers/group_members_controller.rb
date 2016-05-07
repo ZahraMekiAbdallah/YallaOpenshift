@@ -29,15 +29,18 @@ class GroupMembersController < ApplicationController
     @allIds = User.where(name: group_member_params[:user_id]).ids
 
     # @myGr = GroupMember.where(group_id: group_member_params[:group_id], user_id: User.where(name: group_member_params[:user_id]).ids)
-
     @gTest = Group.find(group_member_params[:group_id])
 
 
     @allIds.each do |id|
+
+    @chkFrnd = Friendship.where(user_id: current_user.id, friend_id: id)
+    puts"tessssst"
+    puts !@chkFrnd.empty?
     @myGr = GroupMember.where(group_id: group_member_params[:group_id], user_id: id)
 
-    if current_user.id != id
-        @group_member = GroupMember.new(user_id: t,group_id: group_member_params[:group_id])
+    if current_user.id != id and !@chkFrnd.empty?
+        @group_member = GroupMember.new(user_id: id,group_id: group_member_params[:group_id])
         @group_member.save
         format.html { redirect_to @gTest , notice: '' }
         format.json { render :show, status: :created, location: @group_member }
