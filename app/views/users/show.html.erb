@@ -5,8 +5,7 @@
   <% @user.friendships.each do |friendship| %>
    <table class="table">
    <tr class="success">
-      <td><%=h friendship.friend.name %> 
-          <%= link_to "remove", friendship, :method => :delete %></td>
+      <td><%=h friendship.friend.name %><%= link_to "remove", friendship, :method => :delete %></td>
    </tr>
    </table>
   <% end %>
