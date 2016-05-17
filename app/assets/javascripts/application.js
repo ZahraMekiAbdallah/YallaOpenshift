@@ -93,8 +93,9 @@ function addUserToDiv(users){
 		elm = "<div id=" + users[i].id + " class='row'><h3>" + users[i].email + "</h3>&nbsp;<a href='#' onclick='removeFriend("+users[i].id+")'><i class='fa fa-times'></i></a></div>";
 		$('#invited_frnds').append(elm);
 		invited++;
-		// $('#ordr_uids').val($('#ordr_uids').val()+","+users[i].id);
+		$('#ordr_uids').val($('#ordr_uids').val()+","+users[i].id);
 	}
-	// userIds = ($('#ordr_uids').val()).split(",");
-	// $('#ordr_invited').val(invited);
+	userIds = ($('#ordr_uids').val()).split(",");
+	$('#ordr_invited').val(invited);
 }
+//-------------------- 

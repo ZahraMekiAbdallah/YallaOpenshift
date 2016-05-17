@@ -59,6 +59,7 @@ end
     @currentUser = current_user.id
     @order['user_id'] = @currentUser
     @order['status'] = 'Waiting'
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

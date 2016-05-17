@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 		render :json => {emails: arr}
 	end
 
-# --------- getFriendId ---------
+# --------- getFriendId --------- #
 def getFriendId
 	user = User.find_by(email: params[:femail])
 	if user.nil?
