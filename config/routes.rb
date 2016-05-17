@@ -17,11 +17,12 @@ Rails.application.routes.draw do
   # get '/auth/google' => 'sessions#create'
 
   root 'users#home'
-
   get 'users/home' => 'users#home'
   get 'users/show' => 'users#show'
   get 'users/index' => 'users#index'
-
+  get 'users/getFriendList' => 'users#getFriendList'
+  get 'users/getFriendId' => 'users#getFriendId'
+  get 'orders/hello'=>'orders#hello'
   get 'orders/:id/cancel' => 'orders#cancel'
   get 'orders/:id/finish' => 'orders#finish'
   # config/routes.rb

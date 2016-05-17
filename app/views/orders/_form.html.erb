@@ -13,12 +13,11 @@
   <% end %>
 <div class="row">
 <div class ="col-sm-6">
+
   <div class="field">
     <%= f.label :order_for %><br>
     <%= f.select :order_for, [['Breakfast','breakfast'],['Lunch','lunch'],['Dinner','dinner']] %>
   </div>
-
-
 
   <div class="field">
     <%= f.label :resturant %><br>
@@ -33,11 +32,15 @@
 <!-- Text area to enter friend or group name -->
   <div>
    <label for="invited">Enter Friend/Group:</label>
-   <input type="text" class="form-control" id="invited">
+   <!-- <input type="text" class="form-control" id="invited"> -->
   </div>
 
-
-
+  <input class="form-control" type="text" placeholder="Enter Email/Group" list="contacts" style="margin-top: 5px" name="location" id="invited_atr" onkeypress="autocomplet_friend()">
+    <datalist id="contacts">
+    </datalist>
+    <br>
+    <a href="#" class="btn btn-success" onclick="addFriend()" style="color: #121D12">Invite</a>
+    <br>
   <!-- <form accept-charset="UTF-8" action="/search" method="get">
     <input name="utf8" type="hidden" value="&#x2713;" />
     <label for="q">Search for:</label>
@@ -49,18 +52,19 @@
   <div class="field">
     <%= f.label :'Menu Image' %><br>
     <%= f.file_field :avatar %>
-  </div><br>
+  </div>
+  <br>
 
-
-
-<input type="submit" class="btn btn-info" value="Submit Button">
+<input type="submit" class="btn btn-info" value="Create Order">
 
 <% end %>
 </div>
 <!-- invited friends section -->
 <div class="col-sm-6" >
-  <div class="container">
-<h2>Invited Friends</h2>
+  <div class="container" >
+    <h2>Invited Friends</h2>
+  <div   id="invited_frnds">
+  </div>
   </div>
 
 </div>

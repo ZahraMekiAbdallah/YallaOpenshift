@@ -158,6 +158,8 @@ GEM
       loofah (~> 2.0)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
+    rails4-autocomplete (1.1.1)
+      rails (>= 3.0)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -223,6 +225,7 @@ DEPENDENCIES
   paperclip (~> 4.3.6)
   rails (= 4.2.6)
   rails-observers
+  rails4-autocomplete (~> 1.1, >= 1.1.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
@@ -231,4 +234,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.3

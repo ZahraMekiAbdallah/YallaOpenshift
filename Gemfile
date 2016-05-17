@@ -27,11 +27,11 @@ group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
-	
+
 	#devise gem for sign_up and sign_in
 gem 'devise', '~> 3.5.9'
 gem 'judge'
-	
+
 gem 'autoprefixer-rails'
 
 
@@ -42,8 +42,8 @@ gem 'rails-observers'
 gem "omniauth-google-oauth2"
 
 gem 'carrierwave'
-  
 
+gem 'rails4-autocomplete', '~> 1.1', '>= 1.1.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -66,4 +66,3 @@ group :development do
   gem 'spring'
 
 end
-

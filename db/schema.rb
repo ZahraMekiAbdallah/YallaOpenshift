@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505125929) do
+ActiveRecord::Schema.define(version: 20160509155850) do
 
   create_table "friends", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -42,12 +42,14 @@ ActiveRecord::Schema.define(version: 20160505125929) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "user_id_1",  limit: 4
-    t.integer  "order_id",   limit: 4
-    t.string   "action",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "recipient_id",    limit: 4
+    t.integer  "actor_id",        limit: 4
+    t.datetime "read_at"
+    t.string   "action",          limit: 255
+    t.integer  "notifiable_id",   limit: 4
+    t.string   "notifiable_type", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "order_details", force: :cascade do |t|
@@ -98,10 +100,10 @@ ActiveRecord::Schema.define(version: 20160505125929) do
     t.datetime "updated_at",                                      null: false
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
-    t.string   "name",                   limit: 100
-    t.string   "auth_token",             limit: 255
-    t.string   "password_reset_token",   limit: 255
-    t.datetime "password_reset_sent_at"
+    t.string   "firstName",              limit: 255
+    t.string   "secondName",             limit: 255
+    t.integer  "phoneNumber",            limit: 4
+    t.string   "name",                   limit: 255,              null: false
     t.string   "avatar",                 limit: 255
   end
 

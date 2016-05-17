@@ -24,7 +24,13 @@ class OrdersController < ApplicationController
       format.js   { render :layout => false }
    end
  end
+ # Hello action
 
+ def hello
+    respond_to do |format|
+      format.js { render :layout=>false }
+    end
+  end
  # update Order status
  def finish
   @order = Order.find_by(id: params[:id])

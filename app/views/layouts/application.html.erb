@@ -6,9 +6,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "main" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "autocomplete-rails.js" %>
+  <%= javascript_include_tag 'autocomplete-rails' %>
   <%= csrf_meta_tags %>
- 
+
 </head>
 <body>
     <div class="container-fluid">
@@ -18,7 +18,7 @@
                     <%= image_tag "logo.png" ,:size => '100x50' %>
                 </div>
                 <div class="logo pull-right col-md-6 col-sm-12">
-                  
+
                 </div>
                 <p class="clearfix"></p>
               </header>
@@ -29,7 +29,7 @@
                     </div>
                     <ul class="nav navbar-nav">
                           <li>
-                     
+
                        <% if user_signed_in? %>
                           <li><%= link_to "My Friends",{ :controller =>"users", :action =>"show", :id =>current_user} %></li>
                           <li><a href="/users/index">Make Friends</a></li>
@@ -47,14 +47,14 @@
                        <% if user_signed_in? %>
                         <ul class="nav navbar-nav pull-right">
                           <li class="imgusr">
-                         
+
                           </li>
-                           
+
                            <li>
 							  <a>Welcome<strong> <%= current_user.name %></strong></a>
 							</li>
 							<li>
-                           		<%= link_to "LogOut" ,destroy_user_session_path, :method =>'DELETE' %>                          			
+                           		<%= link_to "LogOut" ,destroy_user_session_path, :method =>'DELETE' %>
                            </li>
                        </ul>
                       <% end %>
@@ -72,6 +72,6 @@
           </div>
 
         </div>
-
+<%= javascript_include_tag 'orders'%>
 </body>
 </html>

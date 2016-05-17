@@ -2,8 +2,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: zahra
-  password: iti
+  username: root
+  password: 123
   socket: /var/run/mysqld/mysqld.sock
 
 development:
@@ -36,4 +36,3 @@ production:
 #   host:   <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
 #   port:
 #    <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
-
